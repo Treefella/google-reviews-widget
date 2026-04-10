@@ -1,0 +1,30 @@
+{
+  "business_name": "Example Business",
+  "overall_rating": 4.9,
+  "total_reviews": 47,
+  "reviews_count": 47,
+  "reviews": [
+    {
+      "author_name": "Alice M.",
+      "rating": 5,
+      "text": "Absolutely fantastic service. Quick, professional, and fixed my laptop same day. Couldn't be happier!",
+      "time": "a week ago",
+      "profile_photo_url": ""
+    },
+    {
+      "author_name": "Ben T.",
+      "rating": 5,
+      "text": "Very knowledgeable team. Sorted out a tricky network issue that had been plaguing us for months.",
+      "time": "2 weeks ago",
+      "profile_photo_url": ""
+    },
+    {
+      "author_name": "Carol W.",
+      "rating": 5,
+      "text": "Great value for money. Honest advice, no unnecessary upselling. Will definitely use again.",
+      "time": "a month ago",
+      "profile_photo_url": ""
+    }
+  ],
+  "last_synced": "2026-04-10 12:00"
+}

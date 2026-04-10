@@ -1,0 +1,206 @@
+/* google-reviews-widget styles
+   https://github.com/Treefella/google-reviews-widget */
+
+/* ── Root ── */
+.grw-root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+.grw-root *,
+.grw-root *::before,
+.grw-root *::after {
+  box-sizing: inherit;
+}
+
+/* ── Light theme (default) ── */
+.grw-theme-light {
+  --grw-bg:          #ffffff;
+  --grw-bg-card:     #f9fafb;
+  --grw-border:      #e5e7eb;
+  --grw-text:        #111827;
+  --grw-text-muted:  #6b7280;
+  --grw-star:        #f59e0b;
+  --grw-accent:      #2563eb;
+  --grw-radius:      12px;
+  --grw-shadow:      0 2px 8px rgba(0,0,0,0.08);
+  --grw-shadow-hover:0 6px 20px rgba(0,0,0,0.12);
+}
+
+/* ── Dark theme ── */
+.grw-theme-dark {
+  --grw-bg:          #0f172a;
+  --grw-bg-card:     #1e293b;
+  --grw-border:      #334155;
+  --grw-text:        #f1f5f9;
+  --grw-text-muted:  #94a3b8;
+  --grw-star:        #fbbf24;
+  --grw-accent:      #3b82f6;
+  --grw-radius:      12px;
+  --grw-shadow:      0 2px 8px rgba(0,0,0,0.4);
+  --grw-shadow-hover:0 6px 20px rgba(0,0,0,0.6);
+}
+
+/* ── Rating banner ── */
+.grw-banner {
+  text-align: center;
+  padding: 28px 24px;
+  margin-bottom: 32px;
+  background: var(--grw-bg-card);
+  border: 1px solid var(--grw-border);
+  border-radius: var(--grw-radius);
+  box-shadow: var(--grw-shadow);
+}
+.grw-banner-stars {
+  font-size: 2rem;
+  color: var(--grw-star);
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+.grw-banner-score {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--grw-text);
+  margin-bottom: 4px;
+}
+.grw-banner-count {
+  font-size: 0.95rem;
+  color: var(--grw-text-muted);
+  margin-bottom: 12px;
+}
+.grw-google-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 14px;
+  background: var(--grw-bg);
+  border: 1px solid var(--grw-border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--grw-text-muted);
+}
+
+/* ── Reviews grid ── */
+.grw-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .grw-list { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .grw-list { grid-template-columns: 1fr; }
+}
+
+/* ── Review card ── */
+.grw-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background: var(--grw-bg-card);
+  border: 1px solid var(--grw-border);
+  border-radius: var(--grw-radius);
+  box-shadow: var(--grw-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+}
+.grw-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--grw-star);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.grw-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--grw-shadow-hover);
+  border-color: var(--grw-star);
+}
+.grw-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ── Card header ── */
+.grw-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.grw-avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--grw-border);
+  flex-shrink: 0;
+}
+.grw-avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--grw-accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.grw-author-info {
+  flex: 1;
+  min-width: 0;
+}
+.grw-author {
+  font-weight: 600;
+  color: var(--grw-text);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.grw-stars {
+  color: var(--grw-star);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+/* ── Review body ── */
+.grw-text {
+  color: var(--grw-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  flex: 1;
+  margin: 0 0 14px;
+}
+.grw-quote {
+  position: absolute;
+  top: 14px; right: 18px;
+  font-size: 2.5rem;
+  color: var(--grw-star);
+  opacity: 0.2;
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ── Review footer ── */
+.grw-time {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: var(--grw-text-muted);
+  margin-top: auto;
+}
+
+/* ── Empty / error state ── */
+.grw-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--grw-text-muted);
+  padding: 20px 0;
+}

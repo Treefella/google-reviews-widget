@@ -63,7 +63,7 @@ def main():
     parser.add_argument(
         "--place-id",
         required=True,
-        help="Google Place ID (e.g. ChIJN_ug_qbRfUgR...)",
+        help="Google Place ID (e.g. ChIJxxxxxxxxxxxxxxxx — find yours at developers.google.com/maps/documentation/places/web-service/place-id)",
     )
     parser.add_argument(
         "--output",
